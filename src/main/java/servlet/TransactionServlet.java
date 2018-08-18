@@ -39,7 +39,7 @@ public class TransactionServlet extends HttpServlet {
                 .withAmount(amount)
                 .buildObject();
         postTransaction(transaction);
-        response.sendRedirect(response.encodeRedirectURL("account?username=" + userId ));
+        response.sendRedirect("account?username=" + userId);
 
     }
 
