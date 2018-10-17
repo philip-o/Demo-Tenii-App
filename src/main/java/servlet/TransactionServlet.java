@@ -40,12 +40,10 @@ public class TransactionServlet extends HttpServlet {
                 .buildObject();
         postTransaction(transaction);
         response.sendRedirect("account?username=" + userId);
-
     }
 
     private void postTransaction(Transaction transaction) throws IOException {
         String url = "https://tenii-products-api.herokuapp.com/transaction";
-        String result = ServletHelper.postRequest(url, gson.toJson(transaction));
-
+        ServletHelper.postRequest(url, gson.toJson(transaction));
     }
 }

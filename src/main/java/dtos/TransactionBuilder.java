@@ -45,7 +45,7 @@ public class TransactionBuilder {
         transaction.setSortCode(this.sortCode);
         transaction.setAccountNumber(this.accountNumber);
         transaction.setAmount(this.amount);
-        transaction.setDate(localDate.getYear() + "" + localDate.getMonthValue() + "" + localDate.getYear());
+        transaction.setDate("" + localDate.getYear() + localDate.getMonthValue() + localDate.getYear());
         return transaction;
     }
 }

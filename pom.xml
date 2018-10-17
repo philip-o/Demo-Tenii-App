@@ -11,7 +11,7 @@
     <name>DemoTeniiApp Maven Webapp</name>
     <url>http://maven.apache.org</url>
     <properties>
-        <tomcat.version>8.5.23</tomcat.version>
+        <tomcat.version>8.5.28</tomcat.version>
     </properties>
     <dependencies>
         <dependency>
