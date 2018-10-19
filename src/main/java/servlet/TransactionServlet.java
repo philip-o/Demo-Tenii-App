@@ -2,7 +2,7 @@ package servlet;
 
 import com.google.gson.Gson;
 import dtos.Transaction;
-import dtos.TransactionBuilder;
+import builders.TransactionBuilder;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

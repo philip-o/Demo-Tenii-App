@@ -1,4 +1,6 @@
-package dtos;
+package builders;
+
+import dtos.Transaction;
 
 import java.time.LocalDate;
 
