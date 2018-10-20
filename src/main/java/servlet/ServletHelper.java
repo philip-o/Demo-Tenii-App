@@ -11,8 +11,17 @@ import org.apache.http.impl.client.HttpClientBuilder;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.HashSet;
+import java.util.Set;
 
 public class ServletHelper {
+
+    private static Set<Integer> validCodes = new HashSet<>();
+
+    static {
+        validCodes.add(201);
+        validCodes.add(308);
+    }
 
     public static String getRequest(String url) throws IOException {
         HttpClient client = HttpClientBuilder.create().build();
@@ -35,12 +44,13 @@ public class ServletHelper {
 
     public static String postRequest(String url, String payload) throws IOException {
 
+
         HttpClient client = HttpClientBuilder.create().build();
         HttpPost post = new HttpPost(url);
         post.setEntity(new StringEntity(payload,
                 ContentType.APPLICATION_JSON));
         HttpResponse response = client.execute(post);
-        if(response.getStatusLine().getStatusCode() == 201) {
+        if(validCodes.contains(response.getStatusLine().getStatusCode())) {
             BufferedReader rd = new BufferedReader(
                     new InputStreamReader(response.getEntity().getContent()));
 
