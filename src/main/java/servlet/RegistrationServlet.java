@@ -46,8 +46,7 @@ public class RegistrationServlet extends HttpServlet {
                 .buildObject();
         String url = postTransaction(register);
         System.out.println("URL is " + url);
-        response.setStatus(HttpServletResponse.SC_FOUND);
-        response.setHeader("Location", url);
+        response.sendRedirect(url);
     }
 
     private String postTransaction(Register register) throws IOException {
