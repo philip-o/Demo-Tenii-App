@@ -46,7 +46,7 @@ public class RegistrationServlet extends HttpServlet {
                 .buildObject();
         String url = postTransaction(register);
         System.out.println("URL is " + url);
-        response.sendRedirect(url);
+        response.sendRedirect("http://www.google.co.uk");
     }
 
     private String postTransaction(Register register) throws IOException {
