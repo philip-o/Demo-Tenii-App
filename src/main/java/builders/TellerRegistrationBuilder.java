@@ -40,7 +40,7 @@ public class TellerRegistrationBuilder {
         return this;
     }
 
-    public TellerRegistrationBuilder withTMobile(String mobile) {
+    public TellerRegistrationBuilder withMobile(String mobile) {
         this.mobile = mobile;
         return this;
     }
