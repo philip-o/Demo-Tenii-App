@@ -59,6 +59,7 @@ public class ServletHelper {
             while ((line = rd.readLine()) != null) {
                 result.append(line);
             }
+            System.out.println(result.toString());
             return result.toString();
         }
         else
