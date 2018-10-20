@@ -44,7 +44,10 @@ public class RegistrationServlet extends HttpServlet {
                 .withEmail(email)
                 .withIPAddress(ipAddress)
                 .buildObject();
-        response.sendRedirect(postTransaction(register));
+        String url = postTransaction(register);
+        System.out.println("URL is " + url);
+        response.setStatus(HttpServletResponse.SC_FOUND);
+        response.sendRedirect(url);
     }
 
     private String postTransaction(Register register) throws IOException {
