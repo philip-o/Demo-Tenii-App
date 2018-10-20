@@ -19,6 +19,7 @@ public class ServletHelper {
     private static Set<Integer> validCodes = new HashSet<>();
 
     static {
+        validCodes.add(200);
         validCodes.add(201);
         validCodes.add(308);
     }
@@ -43,7 +44,6 @@ public class ServletHelper {
     }
 
     public static String postRequest(String url, String payload) throws IOException {
-
 
         HttpClient client = HttpClientBuilder.create().build();
         HttpPost post = new HttpPost(url);
