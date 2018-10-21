@@ -16,19 +16,21 @@ import java.util.Set;
 
 public class ServletHelper {
 
-    private static Set<Integer> validCodes = new HashSet<>();
+    private static Set<Integer> validPostCodes = new HashSet<>();
+    private static Set<Integer> validGetCodes = new HashSet<>();
 
     static {
-        validCodes.add(200);
-        validCodes.add(201);
-        validCodes.add(308);
+        validPostCodes.add(200);
+        validPostCodes.add(201);
+        validPostCodes.add(308);
+        validGetCodes.add(200);
     }
 
     public static String getRequest(String url) throws IOException {
         HttpClient client = HttpClientBuilder.create().build();
         HttpGet get = new HttpGet(url);
         HttpResponse response = client.execute(get);
-        if(response.getStatusLine().getStatusCode() == 200) {
+        if(validGetCodes.contains(response.getStatusLine().getStatusCode())) {
             BufferedReader rd = new BufferedReader(
                     new InputStreamReader(response.getEntity().getContent()));
 
@@ -50,7 +52,7 @@ public class ServletHelper {
         post.setEntity(new StringEntity(payload,
                 ContentType.APPLICATION_JSON));
         HttpResponse response = client.execute(post);
-        if(validCodes.contains(response.getStatusLine().getStatusCode())) {
+        if(validPostCodes.contains(response.getStatusLine().getStatusCode())) {
             BufferedReader rd = new BufferedReader(
                     new InputStreamReader(response.getEntity().getContent()));
 
@@ -59,7 +61,6 @@ public class ServletHelper {
             while ((line = rd.readLine()) != null) {
                 result.append(line);
             }
-            System.out.println(result.toString());
             return result.toString();
         }
         else
