@@ -14,21 +14,12 @@ public class PostAuthServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse response)
             throws ServletException, IOException {
         String queryString = req.getQueryString();
-        if(queryString != null) {
-            try {
-                System.out.println("Query string is " + req.getQueryString());
-                getAuthorisation(queryString);
-                response.sendRedirect("login");
-            } catch (IOException ioe) {
-                response.sendRedirect("register");
-            }
-        }
-        else {
+        try {
             System.out.println("Query string is " + req.getQueryString());
-            String access_token = req.getParameter("access_token");
-            String permissions = req.getParameter("permissions");
-            getAuthorisation("access_token=" + access_token + "&permissions=" + permissions);
+            getAuthorisation(queryString);
             response.sendRedirect("login");
+        } catch (IOException ioe) {
+            response.sendRedirect("register");
         }
     }
 
