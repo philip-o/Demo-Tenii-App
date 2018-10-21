@@ -17,7 +17,7 @@ public class PostAuthServlet extends HttpServlet {
         try {
             System.out.println("Query string is " + req.getQueryString());
             getAuthorisation(queryString);
-            response.sendRedirect("login");
+            response.sendRedirect("tellerLogin");
         } catch (IOException ioe) {
             response.sendRedirect("register");
         }
