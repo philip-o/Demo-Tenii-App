@@ -55,7 +55,7 @@ public class TellerLoginProcessServlet extends HttpServlet {
         writer.append("</table>");
         writer.append("<br/>");
         writer.append("<br/>");
-        writer.append("<table border=\"1\"><tr><th>Pot Amount</th>><th>Limit</th></tr>");
+        writer.append("<table border=\"1\"><tr><th>Pot Amount</th><th>Limit</th></tr>");
         writer.append("<tr><td>" + pot.getAmount() + "</td><td>" + pot.getLimit() + "</td></tr>");
         writer.append("</table>");
         writer.append("</center>");
