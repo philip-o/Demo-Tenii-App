@@ -4,10 +4,7 @@ import builders.TellerLoginBuilder;
 import builders.TellerRegistrationBuilder;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import dtos.Register;
-import dtos.RoarType;
-import dtos.TellerAccount;
-import dtos.TellerLogin;
+import dtos.*;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -40,7 +37,7 @@ public class TellerLoginProcessServlet extends HttpServlet {
                 .withIPAddress(ipAddress)
                 .buildObject();
         String result = postTransaction(request);
-        List<TellerAccount> res = gson.fromJson(result, listType);
+        TellerAccountsResponse res = gson.fromJson(result, TellerAccountsResponse.class);
         response.setContentType("text/html");
         response.setCharacterEncoding("UTF-8");
 
@@ -55,7 +52,7 @@ public class TellerLoginProcessServlet extends HttpServlet {
         writer.append("		<body>\r\n");
         writer.append("<center>");
         writer.append("<table border=\"1\"><tr><th>Sort Code</th><th>Account Number</th><th>Balance</th></tr>");
-        res.forEach(acc -> buildResponse(writer, acc));
+        res.getAccounts().forEach(acc -> buildResponse(writer, acc));
         writer.append("</table>");
         writer.append("</center>");
         writer.append("		</body>\r\n");
