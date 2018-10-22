@@ -1,7 +1,6 @@
 package servlet;
 
 import builders.TellerLoginBuilder;
-import builders.TellerRegistrationBuilder;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import dtos.*;
@@ -14,9 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.lang.reflect.Type;
-import java.net.InetAddress;
 import java.util.ArrayList;
-import java.util.List;
 
 @WebServlet(name = "TellerLoginProcessServlet", urlPatterns = {"/tLogin"})
 public class TellerLoginProcessServlet extends HttpServlet {
@@ -36,8 +33,10 @@ public class TellerLoginProcessServlet extends HttpServlet {
                 .withEmail(email)
                 .withIPAddress(ipAddress)
                 .buildObject();
-        String result = postTransaction(request);
+        String result = postLogin(request);
         TellerAccountsResponse res = gson.fromJson(result, TellerAccountsResponse.class);
+        result = getPot(res.getId());
+        Pot pot = gson.fromJson(result, Pot.class);
         response.setContentType("text/html");
         response.setCharacterEncoding("UTF-8");
 
@@ -54,6 +53,11 @@ public class TellerLoginProcessServlet extends HttpServlet {
         writer.append("<table border=\"1\"><tr><th>Sort Code</th><th>Account Number</th><th>Balance</th></tr>");
         res.getAccounts().forEach(acc -> buildResponse(writer, acc));
         writer.append("</table>");
+        writer.append("<br/>");
+        writer.append("<br/>");
+        writer.append("<table border=\"1\"><tr><th>Pot Amount</th>><th>Limit</th></tr>");
+        writer.append("<tr><td>" + pot.getAmount() + "</td>" + pot.getLimit() + "<td></td></tr>");
+        writer.append("</table>");
         writer.append("</center>");
         writer.append("		</body>\r\n");
         writer.append("</html>\r\n");
@@ -65,8 +69,13 @@ public class TellerLoginProcessServlet extends HttpServlet {
         writer.append("<td>" + account.getBalance() + "</td></tr>");
     }
 
-    private String postTransaction(TellerLogin login) throws IOException {
+    private String postLogin(TellerLogin login) throws IOException {
         String url = "https://tenii-customer-api.herokuapp.com/tellerLogin";
         return ServletHelper.postRequest(url, gson.toJson(login));
+    }
+
+    private String getPot(String id) throws IOException {
+        String url = "https://tenii-payments-api.herokuapp.com/teller/" + id;
+        return ServletHelper.getRequest(url);
     }
 }
