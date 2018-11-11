@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cce5e9d0-3d30-468f-8f05-05d30e1fa3e2" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/servlet/PostAuthServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/servlet/PostAuthServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/servlet/RegisterServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/servlet/RegisterServlet.java" afterDir="false" />
-    </list>
+    <list default="true" id="cce5e9d0-3d30-468f-8f05-05d30e1fa3e2" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -49,7 +45,7 @@
           <entry key="Procfile" value="2" />
           <entry key="class" value="12" />
           <entry key="gitignore" value="2" />
-          <entry key="java" value="62" />
+          <entry key="java" value="63" />
           <entry key="jsp" value="3" />
         </counts>
       </usages-collector>
@@ -57,7 +53,7 @@
         <counts>
           <entry key="CLASS" value="12" />
           <entry key="Git file" value="2" />
-          <entry key="JAVA" value="62" />
+          <entry key="JAVA" value="63" />
           <entry key="JSP" value="3" />
           <entry key="PLAIN_TEXT" value="2" />
         </counts>
@@ -99,11 +95,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/servlet/TrulayerRegistrationServlet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="518">
-              <caret line="52" column="71" selection-start-line="52" selection-start-column="71" selection-end-line="52" selection-end-column="71" />
+            <state relative-caret-position="91">
+              <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/servlet/RegisterServlet.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="31" column="55" selection-start-line="31" selection-start-column="55" selection-end-line="31" selection-end-column="55" />
             </state>
           </provider>
         </entry>
@@ -416,7 +421,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541950264304" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541950786561" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -539,7 +544,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="877" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" order="0" />
       <window_info id="Nl-Palette" order="1" />
@@ -547,7 +551,7 @@
       <window_info id="UI Designer" order="3" />
       <window_info id="Image Layers" order="4" />
       <window_info id="Favorites" order="5" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="6" sideWeight="0.55877614" visible="true" weight="0.17453505" />
+      <window_info content_ui="combo" id="Project" order="6" sideWeight="0.55877614" visible="true" weight="0.17453505" />
       <window_info id="Structure" order="7" sideWeight="0.44122383" side_tool="true" visible="true" weight="0.17453505" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32484075" />
@@ -559,7 +563,7 @@
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="8" weight="0.32866243" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.2089172" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.2089172" />
       <window_info anchor="bottom" id="SBT Console" order="11" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -838,13 +842,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/servlet/RegisterServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="31" column="55" selection-start-line="31" selection-start-column="55" selection-end-line="31" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/servlet/AccountServlet.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="544">
@@ -862,10 +859,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/servlet/RegisterServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="31" column="55" selection-start-line="31" selection-start-column="55" selection-end-line="31" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/servlet/TrulayerRegistrationServlet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="518">
-          <caret line="52" column="71" selection-start-line="52" selection-start-column="71" selection-end-line="52" selection-end-column="71" />
+        <state relative-caret-position="91">
+          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
