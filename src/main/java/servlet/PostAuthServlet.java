@@ -17,7 +17,7 @@ public class PostAuthServlet extends HttpServlet {
         try {
             System.out.println("Query string is " + req.getQueryString());
             getAuthorisation(queryString);
-            response.sendRedirect("tellerLogin");
+            response.sendRedirect("trulayerLogin");
         } catch (IOException ioe) {
             response.sendRedirect("register");
         }
@@ -25,7 +25,7 @@ public class PostAuthServlet extends HttpServlet {
 
 
     private void getAuthorisation(String path) throws IOException {
-        String url = "https://tenii-customer-api.herokuapp.com/teller/postauth?" + path;
+        String url = "https://tenii-trulayer-api.herokuapp.com/callback?" + path;
         ServletHelper.getRequest(url);
     }
 }

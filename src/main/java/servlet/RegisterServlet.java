@@ -29,7 +29,7 @@ public class RegisterServlet extends HttpServlet {
                 .append("		</head>\r\n")
                 .append("		<body>\r\n")
                 .append("<center>")
-                .append("			<form action=\"registration\" method=\"POST\">\r\n")
+                .append("			<form action=\"truRegistration\" method=\"POST\">\r\n")
                 .append("				Please register to be a Teniite: \r\n")
                 .append("<br/>")
                 .append("<br/>")
