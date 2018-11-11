@@ -25,7 +25,7 @@ public class PostAuthServlet extends HttpServlet {
 
 
     private void getAuthorisation(String path) throws IOException {
-        String url = "https://tenii-trulayer-api.herokuapp.com/callback?" + path;
+        String url = "https://tenii-trulayer-api.herokuapp.com/postauth/callback?" + path;
         ServletHelper.getRequest(url);
     }
 }
