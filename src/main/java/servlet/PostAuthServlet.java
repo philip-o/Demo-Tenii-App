@@ -57,7 +57,7 @@ public class PostAuthServlet extends HttpServlet {
                 .append("Redirecting\r\n")
                 .append("<br/>")
                 .append("<br/>")
-                .append("<input type=\"text\" name=\"grant_type\" value=\"authorization_code\" />\r\n")
+                .append("<input type=\"hidden\" name=\"grant_type\" value=\"authorization_code\" />\r\n")
                 .append("<input type=\"hidden\" name=\"client_id\" value=\"" + clientId + "\" />\r\n")
                 .append("<input type=\"hidden\" name=\"client_secret\" value=\"" + clientSecret + "\" />\r\n")
                 .append("<input type=\"hidden\" name=\"code\" value=\"" + request.getParameter("code") + "\" />\r\n")
