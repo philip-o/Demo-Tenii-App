@@ -11,8 +11,8 @@ import java.io.PrintWriter;
 @WebServlet(name = "PostAuthServlet", urlPatterns = {"/postauth"})
 public class PostAuthServlet extends HttpServlet {
 
-    String clientId = System.getProperty("CLIENT_ID", "something");
-    String clientSecret = System.getProperty("CLIENT_SECRET", "blabla");
+    String clientId = System.getenv("CLIENT_ID");
+    String clientSecret = System.getenv("CLIENT_SECRET");
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse response)
