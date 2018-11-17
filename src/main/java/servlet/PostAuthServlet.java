@@ -20,9 +20,9 @@ public class PostAuthServlet extends HttpServlet {
         String queryString = req.getQueryString();
         try {
             System.out.println("Query string is " + req.getQueryString());
-            //getAuthorisation(queryString);
+            getAuthorisation(queryString);
             //response.sendRedirect("trulayerLogin");
-            createForm(response, req);
+            //createForm(response, req);
         } catch (IOException ioe) {
             response.sendRedirect("register");
         }
