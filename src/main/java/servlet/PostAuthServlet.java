@@ -1,5 +1,8 @@
 package servlet;
 
+import com.google.gson.Gson;
+import dtos.trulayer.TrulayerAccounts;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,6 +14,7 @@ import java.io.PrintWriter;
 @WebServlet(name = "PostAuthServlet", urlPatterns = {"/postauth"})
 public class PostAuthServlet extends HttpServlet {
 
+    Gson gson = new Gson();
     String clientId = System.getenv("CLIENT_ID");
     String clientSecret = System.getenv("CLIENT_SECRET");
 
@@ -20,7 +24,28 @@ public class PostAuthServlet extends HttpServlet {
         String queryString = req.getQueryString();
         try {
             System.out.println("Query string is " + req.getQueryString());
-            getAuthorisation(queryString);
+            String jsonResponse = getAuthorisation(queryString);
+            TrulayerAccounts accounts = gson.fromJson(jsonResponse, TrulayerAccounts.class);
+            PrintWriter writer = response.getWriter();
+            writer.append("<!DOCTYPE html>\r\n")
+                    .append("<html>\r\n")
+                    .append("		<head>\r\n")
+                    .append("			<title>Accounts</title>\r\n")
+                    .append("		</head>\r\n")
+                    .append("		<body>\r\n")
+                    .append("<center>");
+            //writer.append("<table border=\"1\"><tr><th>Provider</th><th>Sort Code</th><th>Account Number</th><th>Balance</th></tr><tr>");
+            writer.append("<table border=\"1\"><tr><th>Provider</th><th>Sort Code</th><th>Account Number</th></tr><tr>");
+            accounts.getResults().forEach(
+                    account -> writer.append("<td>" + account.getProvider() + "</td>")
+                            .append("<td>" + account.getAccount_number().getSort_code() + "</td>")
+                            .append("<td>" + account.getAccount_number().getNumber() + "</td>")
+            );
+            //writer.append("<td>" + account.getBalance() + "</td>");
+            writer.append("</tr></table>");
+            writer.append("</center>")
+                    .append("		</body>\r\n")
+                    .append("</html>\r\n");
             //response.sendRedirect("trulayerLogin");
             //createForm(response, req);
         } catch (IOException ioe) {
@@ -29,9 +54,9 @@ public class PostAuthServlet extends HttpServlet {
     }
 
 
-    private void getAuthorisation(String path) throws IOException {
+    private String getAuthorisation(String path) throws IOException {
         String url = "https://tenii-trulayer-api.herokuapp.com/postauth/callback?" + path;
-        ServletHelper.getRequest(url);
+        return ServletHelper.getRequest(url);
     }
 
     private void createForm(HttpServletResponse response, HttpServletRequest request) throws IOException {
