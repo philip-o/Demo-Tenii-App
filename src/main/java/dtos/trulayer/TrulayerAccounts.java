@@ -6,13 +6,13 @@ public class TrulayerAccounts {
 
     public TrulayerAccounts() {}
 
-    private List<Account> results;
+    private List<Account> accounts;
 
-    public List<Account> getResults() {
-        return results;
+    public List<Account> getAccounts() {
+        return accounts;
     }
 
     public void setResults(List<Account> results) {
-        this.results = results;
+        this.accounts = results;
     }
 }
