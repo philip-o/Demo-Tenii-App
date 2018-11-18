@@ -36,6 +36,8 @@ public class PostAuthServlet extends HttpServlet {
                     .append("<center>");
             //writer.append("<table border=\"1\"><tr><th>Provider</th><th>Sort Code</th><th>Account Number</th><th>Balance</th></tr><tr>");
             writer.append("<table border=\"1\"><tr><th>Provider</th><th>Sort Code</th><th>Account Number</th></tr><tr>");
+            System.out.println("Account's object is " + accounts);
+            System.out.println("Account results's object is " + accounts.getResults());
             accounts.getResults().forEach(account ->
                     System.out.println("Provider: " + account.getProvider() + " Sort Code: "
                     + account.getAccount_number().getSort_code()
