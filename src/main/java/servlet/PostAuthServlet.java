@@ -35,10 +35,6 @@ public class PostAuthServlet extends HttpServlet {
                     .append("		<body>\r\n")
                     .append("<center>");
             writer.append("<table border=\"1\"><tr><th>Provider</th><th>Sort Code</th><th>Account Number</th><th>Balance</th></tr><tr>");
-            accounts.getAccounts().forEach(account ->
-                    System.out.println("Provider: " + account.getProvider().getDisplay_name() + " Sort Code: "
-                    + account.getAccount_number().getSort_code()
-                            + " Number: " + account.getAccount_number().getNumber()));
             accounts.getAccounts().forEach(
                     account -> writer.append("<tr><td>" + account.getProvider().getDisplay_name() + "</td>")
                             .append("<td>" + account.getAccount_number().getSort_code() + "</td>")
