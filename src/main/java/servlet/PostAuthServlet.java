@@ -34,8 +34,7 @@ public class PostAuthServlet extends HttpServlet {
                     .append("		</head>\r\n")
                     .append("		<body>\r\n")
                     .append("<center>");
-            //writer.append("<table border=\"1\"><tr><th>Provider</th><th>Sort Code</th><th>Account Number</th><th>Balance</th></tr><tr>");
-            writer.append("<table border=\"1\"><tr><th>Provider</th><th>Sort Code</th><th>Account Number</th></tr>");
+            writer.append("<table border=\"1\"><tr><th>Provider</th><th>Sort Code</th><th>Account Number</th><th>Balance</th></tr><tr>");
             accounts.getAccounts().forEach(account ->
                     System.out.println("Provider: " + account.getProvider().getDisplay_name() + " Sort Code: "
                     + account.getAccount_number().getSort_code()
@@ -43,7 +42,8 @@ public class PostAuthServlet extends HttpServlet {
             accounts.getAccounts().forEach(
                     account -> writer.append("<tr><td>" + account.getProvider().getDisplay_name() + "</td>")
                             .append("<td>" + account.getAccount_number().getSort_code() + "</td>")
-                            .append("<td>" + account.getAccount_number().getNumber() + "</td></tr>")
+                            .append("<td>" + account.getAccount_number().getNumber() + "</td>")
+                            .append("<td>" + account.getBalance() + "</td></tr>")
             );
             //writer.append("<td>" + account.getBalance() + "</td>");
             writer.append("</table>");

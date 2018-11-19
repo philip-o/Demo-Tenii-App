@@ -9,6 +9,7 @@ public class Account {
     private AccountNumbers account_number;
     private String currency;
     private Provider provider;
+    private double balance;
 
     public String getAccount_id() {
         return account_id;
@@ -48,5 +49,13 @@ public class Account {
 
     public void setProvider(Provider provider) {
         this.provider = provider;
+    }
+
+    public double getBalance() {
+        return balance;
+    }
+
+    public void setBalance(double balance) {
+        this.balance = balance;
     }
 }
