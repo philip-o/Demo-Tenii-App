@@ -1,6 +1,7 @@
 package servlet;
 
 import com.google.gson.Gson;
+import dtos.trulayer.Account;
 import dtos.trulayer.TrulayerAccounts;
 
 import javax.servlet.ServletException;
@@ -34,20 +35,18 @@ public class PostAuthServlet extends HttpServlet {
                     .append("		</head>\r\n")
                     .append("		<body>\r\n")
                     .append("<center>");
-            writer.append("<table border=\"1\"><tr><th>Provider</th><th>Sort Code</th><th>Account Number</th><th>Balance</th></tr><tr>");
+            writer.append("<table border=\"1\"><tr><th>Provider</th><th>Sort Code</th><th>Account Number</th><th>Balance</th><th>Transactions</th></tr><tr>");
             accounts.getAccounts().forEach(
                     account -> writer.append("<tr><td>" + account.getProvider().getDisplay_name() + "</td>")
                             .append("<td>" + account.getAccount_number().getSort_code() + "</td>")
                             .append("<td>" + account.getAccount_number().getNumber() + "</td>")
-                            .append("<td>" + account.getBalance() + "</td></tr>")
+                            .append("<td>" + account.getBalance() + "</td>")
+                    .append(addTransactionForm(account, accounts.getAccessToken()))
             );
-            //writer.append("<td>" + account.getBalance() + "</td>");
             writer.append("</table>");
             writer.append("</center>")
                     .append("		</body>\r\n")
                     .append("</html>\r\n");
-            //response.sendRedirect("trulayerLogin");
-            //createForm(response, req);
         } catch (IOException ioe) {
             response.sendRedirect("register");
         }
@@ -57,6 +56,14 @@ public class PostAuthServlet extends HttpServlet {
     private String getAuthorisation(String path) throws IOException {
         String url = "https://tenii-trulayer-api.herokuapp.com/postauth/callback?" + path;
         return ServletHelper.getRequest(url);
+    }
+
+    private String addTransactionForm(Account account, String token) {
+        return "<td><form action=\"tTransaction\" method=\"POST\">" +
+                "<input type=\"hidden\" name=\"token\" value=\"" + token + "\" />" +
+                "<input type=\"hidden\" name=\"accountId\" value=\"" + account.getAccount_id() + "\" />" +
+                "<input type=\"submit\" value=\"Transactions\" /></form>" +
+                "</td></tr>";
     }
 
     private void createForm(HttpServletResponse response, HttpServletRequest request) throws IOException {
