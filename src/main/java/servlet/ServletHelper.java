@@ -45,10 +45,12 @@ public class ServletHelper {
             throw new IOException("Status code of " + response.getStatusLine().getStatusCode());
     }
 
-    public static String postRequest(String url, String payload) throws IOException {
+    public static String postRequest(String url, String payload, String tokenHeader) throws IOException {
 
         HttpClient client = HttpClientBuilder.create().build();
         HttpPost post = new HttpPost(url);
+        if(tokenHeader != null)
+            post.addHeader("token", tokenHeader);
         post.setEntity(new StringEntity(payload,
                 ContentType.APPLICATION_JSON));
         HttpResponse response = client.execute(post);
@@ -57,7 +59,7 @@ public class ServletHelper {
                     new InputStreamReader(response.getEntity().getContent()));
 
             StringBuilder result = new StringBuilder();
-            String line = "";
+            String line;
             while ((line = rd.readLine()) != null) {
                 result.append(line);
             }

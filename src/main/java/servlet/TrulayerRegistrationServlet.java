@@ -51,6 +51,6 @@ public class TrulayerRegistrationServlet extends HttpServlet {
 
     private String postTransaction(Register register) throws IOException {
         String url = "https://tenii-customer-api.herokuapp.com/trulayer/register";
-        return ServletHelper.postRequest(url, gson.toJson(register));
+        return ServletHelper.postRequest(url, gson.toJson(register), null);
     }
 }

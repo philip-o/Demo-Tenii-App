@@ -51,6 +51,6 @@ public class RegistrationServlet extends HttpServlet {
 
     private String postTransaction(Register register) throws IOException {
         String url = "https://tenii-customer-api.herokuapp.com/teller/register";
-        return ServletHelper.postRequest(url, gson.toJson(register));
+        return ServletHelper.postRequest(url, gson.toJson(register), null);
     }
 }

@@ -71,7 +71,7 @@ public class TellerLoginProcessServlet extends HttpServlet {
 
     private String postLogin(TellerLogin login) throws IOException {
         String url = "https://tenii-customer-api.herokuapp.com/tellerLogin";
-        return ServletHelper.postRequest(url, gson.toJson(login));
+        return ServletHelper.postRequest(url, gson.toJson(login), null);
     }
 
     private String getPot(String id) throws IOException {

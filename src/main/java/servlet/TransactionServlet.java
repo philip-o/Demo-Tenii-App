@@ -44,6 +44,6 @@ public class TransactionServlet extends HttpServlet {
 
     private void postTransaction(Transaction transaction) throws IOException {
         String url = "https://tenii-products-api.herokuapp.com/transaction";
-        ServletHelper.postRequest(url, gson.toJson(transaction));
+        ServletHelper.postRequest(url, gson.toJson(transaction), null);
     }
 }
