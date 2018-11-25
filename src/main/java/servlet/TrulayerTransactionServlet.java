@@ -34,7 +34,7 @@ public class TrulayerTransactionServlet extends HttpServlet {
     }
 
     private String postTransaction(TrulayerTransaction trans, String token) throws IOException {
-        String url = "https://tenii-trulayer-api.herokuapp.com/transactions";
-        return ServletHelper.postRequest(url, gson.toJson(trans), token);
+        String url = "https://tenii-trulayer-api.herokuapp.com/transactions/" + trans.getAccountId();
+        return ServletHelper.getRequest(url, token);
     }
 }

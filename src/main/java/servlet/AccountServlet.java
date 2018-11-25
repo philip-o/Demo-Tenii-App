@@ -70,7 +70,7 @@ public class AccountServlet extends HttpServlet {
 
     private void loadAccount(PrintWriter writer, String username) throws IOException {
         String url = "https://tenii-products-api.herokuapp.com/bankAccount?userId=" + username;
-        String result = ServletHelper.getRequest(url);
+        String result = ServletHelper.getRequest(url, null);
         BankAccount account = gson.fromJson(result, BankAccount.class);
         writer.append("<table border=\"1\"><tr><th>Provider</th><th>Sort Code</th><th>Account Number</th><th>Balance</th></tr><tr>");
         writer.append("<td>" + account.getProvider() + "</td>");
@@ -83,7 +83,7 @@ public class AccountServlet extends HttpServlet {
 
     private void loadMortgage(PrintWriter writer, String username) throws IOException {
         String url = "https://tenii-products-api.herokuapp.com/mortgage?userId=" + username;
-        String result = ServletHelper.getRequest(url);
+        String result = ServletHelper.getRequest(url, null);
         Mortgage mortgage = gson.fromJson(result, Mortgage.class);
         writer.append("<table border=\"1\"><tr><th>Provider</th><th>Account Number</th><th>Mortgage Type</th><th>Monthly Payment</th><th>Rate</th><th>Balance</th></tr><tr>");
         writer.append("<td>" + mortgage.getProvider() + "</td>");

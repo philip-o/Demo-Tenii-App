@@ -26,9 +26,11 @@ public class ServletHelper {
         validGetCodes.add(200);
     }
 
-    public static String getRequest(String url) throws IOException {
+    public static String getRequest(String url, String tokenHeader) throws IOException {
         HttpClient client = HttpClientBuilder.create().build();
         HttpGet get = new HttpGet(url);
+        if(tokenHeader != null)
+            get.addHeader("token", tokenHeader);
         HttpResponse response = client.execute(get);
         if(validGetCodes.contains(response.getStatusLine().getStatusCode())) {
             BufferedReader rd = new BufferedReader(
