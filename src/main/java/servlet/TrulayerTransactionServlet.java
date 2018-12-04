@@ -44,9 +44,9 @@ public class TrulayerTransactionServlet extends HttpServlet {
                 .append("		</head>\r\n")
                 .append("		<body>\r\n")
                 .append("<center>")
-                .append("<table border=\"1\"><tr><th>Date</th><th>Description</th><th>Amount</th><th>Type</th></tr><tr>");
+                .append("<table border=\"1\"><tr><th>Date</th><th>Description</th><th>Amount</th><th>Type</th></tr>");
         truTrans.getTransactions().forEach(tr -> writeTransaction(writer, tr));
-        writer.append("</tr></table>");
+        writer.append("</table>");
         writer
                 .append("<br/>")
                 .append("<br/>")
@@ -57,10 +57,10 @@ public class TrulayerTransactionServlet extends HttpServlet {
 
     private void writeTransaction(PrintWriter writer, TrulayerTransaction transaction) {
 
-        writer.append("<td>" + transaction.getTimestamp() + "</td>");
+        writer.append("<tr><td>" + transaction.getTimestamp() + "</td>");
         writer.append("<td>" + transaction.getDescription() + "</td>");
         writer.append("<td>" + transaction.getAmount() + "</td>");
-        writer.append("<td>" + transaction.getTransaction_type() + "</td>");
+        writer.append("<td>" + transaction.getTransaction_type() + "</td></tr>");
     }
 
     private String getTransactions(TrulayerTransactionRequest trans, String token) throws IOException {
