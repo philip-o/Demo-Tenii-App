@@ -10,11 +10,13 @@ public class TrulayerAccounts {
 
     private String accessToken;
 
+    private String refreshToken;
+
     public List<Account> getAccounts() {
         return accounts;
     }
 
-    public void setResults(List<Account> results) {
+    public void setAccounts(List<Account> results) {
         this.accounts = results;
     }
 
@@ -24,5 +26,13 @@ public class TrulayerAccounts {
 
     public void setAccessToken(String accessToken) {
         this.accessToken = accessToken;
+    }
+
+    public String getRefreshToken() {
+        return refreshToken;
+    }
+
+    public void setRefreshToken(String refreshToken) {
+        this.refreshToken = refreshToken;
     }
 }

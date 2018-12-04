@@ -47,6 +47,7 @@ public class PostAuthServlet extends HttpServlet {
             writer.append("</center>")
                     .append("		</body>\r\n")
                     .append("</html>\r\n");
+            //TODO call customer api and send accesstoken and refresh token
         } catch (IOException ioe) {
             response.sendRedirect("register");
         }
