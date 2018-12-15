@@ -51,7 +51,7 @@ public class RegisterServlet extends HttpServlet {
                 .append("Mobile: <input type=\"text\" name=\"mobile\" />\r\n")
                 .append("<br/>")
                 .append("<br/>")
-                .append("Pot Size: <input type=\"text\" name=\"roarType\" />\r\n")
+                .append("Pot Size: <input type=\"text\" name=\"pot\" value=\"100\" />\r\n")
                 .append("<input type=\"hidden\" name=\"ipAddress\" value=\"" + ipAddress + "\" />\r\n")
                 .append("<br/>")
                 .append("<br/>")

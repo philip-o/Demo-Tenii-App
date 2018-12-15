@@ -23,7 +23,7 @@ public class TrulayerRegistrationServlet extends HttpServlet {
         String surname = req.getParameter("surname");
         String dob = req.getParameter("dob");
         String password = req.getParameter("password");
-        int amount = Integer.valueOf(req.getParameter("roarType"));
+        int amount = Integer.valueOf(req.getParameter("pot"));
         String mobile = req.getParameter("mobile");
         String email = req.getParameter("email");
         String ipAddress = req.getParameter("ipAddress");
