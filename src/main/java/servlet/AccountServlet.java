@@ -79,6 +79,8 @@ public class AccountServlet extends HttpServlet {
         String password = req.getParameter("password");
         String ipAddress = req.getParameter("ipAddress");
         if(email == null || email.isEmpty() || password == null || password.isEmpty()) {
+            System.out.println("Email is " + email);
+            System.out.println("Password is " + password);
             response.sendRedirect("login");
         }
         else {
