@@ -16,8 +16,6 @@ import java.io.PrintWriter;
 public class PostAuthServlet extends HttpServlet {
 
     Gson gson = new Gson();
-    String clientId = System.getenv("CLIENT_ID");
-    String clientSecret = System.getenv("CLIENT_SECRET");
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse response)
@@ -47,12 +45,10 @@ public class PostAuthServlet extends HttpServlet {
             writer.append("</center>")
                     .append("		</body>\r\n")
                     .append("</html>\r\n");
-            //TODO call customer api and send accesstoken and refresh token
         } catch (IOException ioe) {
             response.sendRedirect("register");
         }
     }
-
 
     private String getAuthorisation(String path) throws IOException {
         String url = "https://tenii-trulayer-api.herokuapp.com/postauth/callback?" + path;
@@ -65,40 +61,5 @@ public class PostAuthServlet extends HttpServlet {
                 "<input type=\"hidden\" name=\"accountId\" value=\"" + account.getAccount_id() + "\" />" +
                 "<input type=\"submit\" value=\"Transactions\" /></form>" +
                 "</td></tr>";
-    }
-
-    private void createForm(HttpServletResponse response, HttpServletRequest request) throws IOException {
-        response.setContentType("text/html");
-        response.setCharacterEncoding("UTF-8");
-
-        // create HTML form
-        PrintWriter writer = response.getWriter();
-        writer.append("<!DOCTYPE html>\r\n")
-                .append("<html>\r\n")
-                .append("		<head>\r\n")
-                .append("			<title>Redirecting</title>\r\n")
-                .append("		</head>\r\n")
-                .append("		<body>\r\n")
-                .append("<center>");
-        writer
-                .append("<br/>")
-                .append("<br/>");
-        writer
-                .append("<br/>")
-                .append("<br/>")
-                .append("			<form action=\"https://auth.truelayer.com/connect/token\" method=\"POST\">\r\n")
-                .append("Redirecting\r\n")
-                .append("<br/>")
-                .append("<br/>")
-                .append("<input type=\"hidden\" name=\"grant_type\" value=\"authorization_code\" />\r\n")
-                .append("<input type=\"hidden\" name=\"client_id\" value=\"" + clientId + "\" />\r\n")
-                .append("<input type=\"hidden\" name=\"client_secret\" value=\"" + clientSecret + "\" />\r\n")
-                .append("<input type=\"hidden\" name=\"code\" value=\"" + request.getParameter("code") + "\" />\r\n")
-                .append("<input type=\"hidden\" name=\"redirect_uri\" value=\"https://tenii-demo.herokuapp.com/postauth\" />\r\n")
-                .append("<input type=\"submit\" value=\"Submit\" />\r\n")
-                .append("			</form>\r\n")
-                .append("</center>")
-                .append("		</body>\r\n")
-                .append("</html>\r\n");
     }
 }

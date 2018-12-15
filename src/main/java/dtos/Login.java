@@ -1,8 +1,8 @@
 package dtos;
 
-public class TellerLogin {
+public class Login {
 
-    public TellerLogin() {}
+    public Login() {}
 
     private String password;
     private String email;

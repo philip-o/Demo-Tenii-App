@@ -1,6 +1,6 @@
 package servlet;
 
-import builders.TellerLoginBuilder;
+import builders.LoginBuilder;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import dtos.*;
@@ -27,8 +27,8 @@ public class TellerLoginProcessServlet extends HttpServlet {
         String email = req.getParameter("email");
         String ipAddress = req.getParameter("ipAddress");
 
-        TellerLoginBuilder builder = new TellerLoginBuilder();
-        TellerLogin request = builder
+        LoginBuilder builder = new LoginBuilder();
+        Login request = builder
                 .withPassword(password)
                 .withEmail(email)
                 .withIPAddress(ipAddress)
@@ -69,7 +69,7 @@ public class TellerLoginProcessServlet extends HttpServlet {
         writer.append("<td>" + account.getBalance() + "</td></tr>");
     }
 
-    private String postLogin(TellerLogin login) throws IOException {
+    private String postLogin(Login login) throws IOException {
         String url = "https://tenii-customer-api.herokuapp.com/tellerLogin";
         return ServletHelper.postRequest(url, gson.toJson(login), null);
     }

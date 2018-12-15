@@ -17,11 +17,9 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse response)
             throws ServletException, IOException {
-        // set response headers
         response.setContentType("text/html");
         response.setCharacterEncoding("UTF-8");
 
-        // create HTML form
         PrintWriter writer = response.getWriter();
         String ipAddress = InetAddress.getLocalHost().getHostAddress();
         writer.append("<!DOCTYPE html>\r\n")
@@ -35,7 +33,7 @@ public class LoginServlet extends HttpServlet {
                 .append("				Please enter your login details: \r\n")
                 .append("<br/>")
                 .append("<br/>")
-                .append("Username: <input type=\"text\" name=\"username\" />\r\n")
+                .append("Email: <input type=\"text\" name=\"email\" />\r\n")
                 .append("<br/>")
                 .append("<br/>")
                 .append("Password: <input type=\"password\" name=\"password\" />\r\n")

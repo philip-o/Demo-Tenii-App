@@ -1,33 +1,30 @@
 package builders;
 
-import dtos.TellerLogin;
-import dtos.Transaction;
+import dtos.Login;
 
-import java.time.LocalDate;
-
-public class TellerLoginBuilder {
+public class LoginBuilder {
 
     private String email;
     private String password;
     private String ipAddress;
 
-    public TellerLoginBuilder withPassword(String password) {
+    public LoginBuilder withPassword(String password) {
         this.password = password;
         return this;
     }
 
-    public TellerLoginBuilder withEmail(String email) {
+    public LoginBuilder withEmail(String email) {
         this.email = email;
         return this;
     }
 
-    public TellerLoginBuilder withIPAddress(String ipAddress) {
+    public LoginBuilder withIPAddress(String ipAddress) {
         this.ipAddress = ipAddress;
         return this;
     }
 
-    public TellerLogin buildObject() {
-        TellerLogin request = new TellerLogin();
+    public Login buildObject() {
+        Login request = new Login();
         request.setEmail(this.email);
         request.setPassword(this.password);
         request.setIpAddress(this.ipAddress);
