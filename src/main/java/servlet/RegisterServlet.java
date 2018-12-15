@@ -60,6 +60,7 @@ public class RegisterServlet extends HttpServlet {
                 .append("</center>")
                 .append("		</body>\r\n")
                 .append("</html>\r\n");
+        ServletPinger.getInstance().pingServlets();
     }
 
     @Override
