@@ -84,8 +84,11 @@ public class AccountServlet extends HttpServlet {
         else {
             try {
                 Login login = new LoginBuilder().withEmail(email).withIPAddress(ipAddress).withPassword(password).buildObject();
+                System.out.println("Login item is " + login);
                 String jsonResponse = loginAndLoadAccounts(login);
+                System.out.println("Response is " + jsonResponse);
                 TrulayerAccounts accounts = gson.fromJson(jsonResponse, TrulayerAccounts.class);
+                System.out.println("Accounts are " + accounts);
                 PrintWriter writer = response.getWriter();
                 writer.append("<!DOCTYPE html>\r\n")
                         .append("<html>\r\n")
