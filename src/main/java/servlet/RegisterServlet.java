@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.InetAddress;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 @WebServlet(name = "RegisterServlet", urlPatterns = {"/register"})
 public class RegisterServlet extends HttpServlet {
@@ -60,7 +62,8 @@ public class RegisterServlet extends HttpServlet {
                 .append("</center>")
                 .append("		</body>\r\n")
                 .append("</html>\r\n");
-        ServletPinger.getInstance().pingServlets();
+        ExecutorService executor = Executors.newSingleThreadExecutor();
+        executor.submit(() -> ServletPinger.getInstance().pingServlets());
     }
 
     @Override
