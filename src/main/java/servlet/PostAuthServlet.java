@@ -42,6 +42,7 @@ public class PostAuthServlet extends HttpServlet {
                     .append(ServletHelper.addTransactionForm(account, accounts.getAccessToken()))
             );
             writer.append("</table>");
+            ServletHelper.getPot(accounts.getTeniiId(), writer);
             writer.append("</center>")
                     .append("		</body>\r\n")
                     .append("</html>\r\n");

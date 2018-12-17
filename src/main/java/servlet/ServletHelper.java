@@ -88,6 +88,8 @@ public class ServletHelper {
     public static void getPot(String id, PrintWriter writer) throws IOException {
         String url = "https://tenii-payments-api.herokuapp.com/pot/" + id + "/balance";
         Pot pot = gson.fromJson(ServletHelper.getRequest(url, null), Pot.class);
+        writer.append("<br/>");
+        writer.append("<br/>");
         writer.append("<table border=\"1\"><tr><th>Pot Amount</th><th>Limit</th></tr>");
         writer.append("<tr><td>" + pot.getAmount() + "</td><td>" + pot.getLimit() + "</td></tr>");
         writer.append("</table>");
