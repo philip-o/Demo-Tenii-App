@@ -1,5 +1,6 @@
 package servlet;
 
+import dtos.trulayer.Account;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
@@ -69,5 +70,13 @@ public class ServletHelper {
         }
         else
             throw new IOException("Status code of " + response.getStatusLine().getStatusCode());
+    }
+
+    public static String addTransactionForm(Account account, String token) {
+        return "<td><form action=\"tTransaction\" method=\"POST\">" +
+                "<input type=\"hidden\" name=\"token\" value=\"" + token + "\" />" +
+                "<input type=\"hidden\" name=\"accountId\" value=\"" + account.getAccount_id() + "\" />" +
+                "<input type=\"submit\" value=\"Transactions\" /></form>" +
+                "</td></tr>";
     }
 }

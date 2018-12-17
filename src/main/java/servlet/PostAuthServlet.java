@@ -39,7 +39,7 @@ public class PostAuthServlet extends HttpServlet {
                             .append("<td>" + account.getAccount_number().getSort_code() + "</td>")
                             .append("<td>" + account.getAccount_number().getNumber() + "</td>")
                             .append("<td>" + account.getBalance() + "</td>")
-                    .append(addTransactionForm(account, accounts.getAccessToken()))
+                    .append(ServletHelper.addTransactionForm(account, accounts.getAccessToken()))
             );
             writer.append("</table>");
             writer.append("</center>")
@@ -53,13 +53,5 @@ public class PostAuthServlet extends HttpServlet {
     private String getAuthorisation(String path) throws IOException {
         String url = "https://tenii-trulayer-api.herokuapp.com/postauth/callback?" + path;
         return ServletHelper.getRequest(url, null);
-    }
-
-    private String addTransactionForm(Account account, String token) {
-        return "<td><form action=\"tTransaction\" method=\"POST\">" +
-                "<input type=\"hidden\" name=\"token\" value=\"" + token + "\" />" +
-                "<input type=\"hidden\" name=\"accountId\" value=\"" + account.getAccount_id() + "\" />" +
-                "<input type=\"submit\" value=\"Transactions\" /></form>" +
-                "</td></tr>";
     }
 }
