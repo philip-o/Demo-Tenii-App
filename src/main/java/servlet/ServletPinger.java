@@ -18,11 +18,11 @@ public class ServletPinger {
         try {
             String url = "https://tenii-customer-api.herokuapp.com/ping";
             ServletHelper.getRequest(url, null);
-            url = "https://tenii-products-api.herokuapp.com/ping";
+            url = "https://tenii-trulayer-api.herokuapp.com/ping";
             ServletHelper.getRequest(url, null);
             url = "https://tenii-payments-api.herokuapp.com/ping";
             ServletHelper.getRequest(url, null);
-            url = "https://tenii-trulayer-api.herokuapp.com/ping";
+            url = "https://tenii-products-api.herokuapp.com/ping";
             ServletHelper.getRequest(url, null);
             url = "https://tenii-student-loans-api.herokuapp.com/ping";
             ServletHelper.getRequest(url, null);

@@ -1,5 +1,7 @@
 package servlet;
 
+import com.google.gson.Gson;
+import dtos.Pot;
 import dtos.trulayer.Account;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -12,10 +14,13 @@ import org.apache.http.impl.client.HttpClientBuilder;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.util.HashSet;
 import java.util.Set;
 
 public class ServletHelper {
+
+    private static Gson gson = new Gson();
 
     private static Set<Integer> validPostCodes = new HashSet<>();
     private static Set<Integer> validGetCodes = new HashSet<>();
@@ -24,7 +29,6 @@ public class ServletHelper {
         validPostCodes.add(200);
         validPostCodes.add(201);
         validPostCodes.add(308);
-        validGetCodes.add(200);
     }
 
     public static String getRequest(String url, String tokenHeader) throws IOException {
@@ -78,5 +82,13 @@ public class ServletHelper {
                 "<input type=\"hidden\" name=\"accountId\" value=\"" + account.getAccount_id() + "\" />" +
                 "<input type=\"submit\" value=\"Transactions\" /></form>" +
                 "</td></tr>";
+    }
+
+    public static void getPot(String id, PrintWriter writer) throws IOException {
+        String url = "https://tenii-payments-api.herokuapp.com/pot/" + id + "/balance";
+        Pot pot = gson.fromJson(ServletHelper.getRequest(url, null), Pot.class);
+        writer.append("<table border=\"1\"><tr><th>Pot Amount</th><th>Limit</th></tr>");
+        writer.append("<tr><td>" + pot.getAmount() + "</td><td>" + pot.getLimit() + "</td></tr>");
+        writer.append("</table>");
     }
 }

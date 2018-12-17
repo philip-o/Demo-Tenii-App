@@ -12,6 +12,8 @@ public class TrulayerAccounts {
 
     private String refreshToken;
 
+    private String teniiId;
+
     public List<Account> getAccounts() {
         return accounts;
     }
@@ -34,5 +36,13 @@ public class TrulayerAccounts {
 
     public void setRefreshToken(String refreshToken) {
         this.refreshToken = refreshToken;
+    }
+
+    public String getTeniiId() {
+        return teniiId;
+    }
+
+    public void setTeniiId(String teniiId) {
+        this.teniiId = teniiId;
     }
 }
