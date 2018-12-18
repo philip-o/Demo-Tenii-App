@@ -105,7 +105,7 @@ public class AccountServlet extends HttpServlet {
                                 .append("<td>" + account.getAccount_number().getSort_code() + "</td>")
                                 .append("<td>" + account.getAccount_number().getNumber() + "</td>")
                                 .append("<td>" + account.getBalance() + "</td>")
-                                .append(ServletHelper.addTransactionForm(account, accounts.getAccessToken()))
+                                .append(ServletHelper.addTransactionForm(account, accounts.getTeniiId()))
                 );
                 writer.append("</table>");
                 ServletHelper.getPot(accounts.getTeniiId(), writer);
