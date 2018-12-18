@@ -2,6 +2,7 @@ package servlet;
 
 import com.google.gson.Gson;
 import dtos.Pot;
+import dtos.PotResponse;
 import dtos.trulayer.Account;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -87,7 +88,7 @@ public class ServletHelper {
 
     public static void getPot(String id, PrintWriter writer) throws IOException {
         String url = "https://tenii-payments-api.herokuapp.com/pot/" + id + "/balance";
-        Pot pot = gson.fromJson(ServletHelper.getRequest(url, null), Pot.class);
+        Pot pot = gson.fromJson(ServletHelper.getRequest(url, null), PotResponse.class).getPot();
         writer.append("<br/>");
         writer.append("<br/>");
         writer.append("<table border=\"1\"><tr><th>Pot Amount</th><th>Limit</th></tr>");

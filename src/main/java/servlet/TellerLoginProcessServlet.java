@@ -36,7 +36,7 @@ public class TellerLoginProcessServlet extends HttpServlet {
         String result = postLogin(request);
         TellerAccountsResponse res = gson.fromJson(result, TellerAccountsResponse.class);
         result = getPot(res.getId());
-        Pot pot = gson.fromJson(result, Pot.class);
+        Pot pot = gson.fromJson(result, PotResponse.class).getPot();
         response.setContentType("text/html");
         response.setCharacterEncoding("UTF-8");
 
