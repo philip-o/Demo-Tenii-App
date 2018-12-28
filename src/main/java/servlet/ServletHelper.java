@@ -105,7 +105,8 @@ public class ServletHelper {
         SourceBankAccount account = gson.fromJson(ServletHelper.getRequest(url, null), SourceBankAccount.class);
         if(!Optional.ofNullable(account.getAccountId()).isPresent()) {
             writer.append("<br/>");
-            writer.append("Set source Bank Account");
+            writer.append("Set Source bank account");
+            writer.append("<br/>");
             writer.append("<br/>");
             writer.append("<table border=\"1\"><tr><th>Account Number</th><th>Sort Code</th><th>Set as Source</th></tr>");
             accounts.stream().map(acc -> writer.append("<tr><td>" + acc.getAccount_number().getNumber() +
@@ -114,11 +115,12 @@ public class ServletHelper {
         }
     }
 
-    public static String addAccountForm(String userId, String accountId) {
-        return "<form action=\"something\" method=\"POST\">" +
+    private static String addAccountForm(String userId, String accountId) {
+        String line = "<form action=\"something\" method=\"POST\">" +
                 "<input type=\"hidden\" name=\"user\" value=\"" + userId + "\" />" +
                 "<input type=\"hidden\" name=\"accountId\" value=\"" + accountId + "\" />" +
-                "<input type=\"submit\" value=\"Set as Source Account\" />" +
-                "</form>";
+                "<input type=\"submit\" value=\"Set as Source Account\" /></form>";
+        System.out.println(line);
+        return line;
     }
 }
