@@ -43,7 +43,6 @@ public class PostAuthServlet extends HttpServlet {
             );
             writer.append("</table>");
             ServletHelper.getPot(accounts.getTeniiId(), writer);
-            accounts.getAccounts().forEach(acc -> System.out.println("Account: " + acc.getAccount_id()));
             ServletHelper.checkForSourceBank(accounts.getTeniiId(), writer, accounts.getAccounts());
             writer.append("</center>")
                     .append("		</body>\r\n")

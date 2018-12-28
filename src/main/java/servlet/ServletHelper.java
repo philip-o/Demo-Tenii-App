@@ -116,7 +116,7 @@ public class ServletHelper {
     }
 
     private static String addAccountForm(String userId, String accountId) {
-        String line = "<form action=\"something\" method=\"POST\">" +
+        String line = "<form action=\"sourceBank\" method=\"POST\">" +
                 "<input type=\"hidden\" name=\"user\" value=\"" + userId + "\" />" +
                 "<input type=\"hidden\" name=\"accountId\" value=\"" + accountId + "\" />" +
                 "<input type=\"submit\" value=\"Set as Source Account\" /></form>";
