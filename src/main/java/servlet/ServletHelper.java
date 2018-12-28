@@ -109,7 +109,7 @@ public class ServletHelper {
             writer.append("<br/>");
             writer.append("<br/>");
             writer.append("<table border=\"1\"><tr><th>Account Number</th><th>Sort Code</th><th>Set as Source</th></tr>");
-            accounts.stream().map(acc -> writer.append("<tr><td>" + acc.getAccount_number().getNumber() +
+            accounts.stream().forEach(acc -> writer.append("<tr><td>" + acc.getAccount_number().getNumber() +
                     "</td><td>" + acc.getAccount_number().getSort_code() + "</td><td>" + addAccountForm(id, acc.getAccount_id()) + "</td></tr>"));
             writer.append("</table>");
         }
