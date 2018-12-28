@@ -109,6 +109,7 @@ public class AccountServlet extends HttpServlet {
                 );
                 writer.append("</table>");
                 ServletHelper.getPot(accounts.getTeniiId(), writer);
+                ServletHelper.checkForSourceBank(accounts.getTeniiId(), writer, accounts.getAccounts());
                 writer.append("</center>")
                         .append("		</body>\r\n")
                         .append("</html>\r\n");

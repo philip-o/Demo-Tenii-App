@@ -3,6 +3,7 @@ package servlet;
 import com.google.gson.Gson;
 import dtos.Pot;
 import dtos.PotResponse;
+import dtos.SourceBankAccount;
 import dtos.trulayer.Account;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -17,7 +18,10 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Optional;
 import java.util.Set;
+import java.util.stream.Stream;
 
 public class ServletHelper {
 
@@ -94,5 +98,26 @@ public class ServletHelper {
         writer.append("<table border=\"1\"><tr><th>Pot Amount</th><th>Limit</th></tr>");
         writer.append("<tr><td>" + pot.getAmount() + "</td><td>" + pot.getLimit() + "</td></tr>");
         writer.append("</table>");
+    }
+
+    public static void checkForSourceBank(String id, PrintWriter writer, List<Account> accounts) throws IOException {
+        String url = "https://tenii-products-api.herokuapp.com/bankAccount/" + id;
+        SourceBankAccount account = gson.fromJson(ServletHelper.getRequest(url, null), SourceBankAccount.class);
+        if(!Optional.ofNullable(account.getAccountId()).isPresent()) {
+            writer.append("<br/>");
+            writer.append("Set source Bank Account");
+            writer.append("<br/>");
+            writer.append("<table border=\"1\"><tr><th>Account Number</th><th>Sort Code</th><th>Set as Source</th></tr>");
+            accounts.stream().map(acc -> writer.append("<tr><td>" + acc.getAccount_number().getNumber() +
+                    "</td><td>" + acc.getAccount_number().getSort_code() + "</td><td>" + addAccountForm(id, acc.getAccount_id()) + "</td></tr>"));
+        }
+    }
+
+    public static String addAccountForm(String userId, String accountId) {
+        return "<form action=\"something\" method=\"POST\">" +
+                "<input type=\"hidden\" name=\"user\" value=\"" + userId + "\" />" +
+                "<input type=\"hidden\" name=\"accountId\" value=\"" + accountId + "\" />" +
+                "<input type=\"submit\" value=\"Set as Source Account\" />" +
+                "</form>";
     }
 }
