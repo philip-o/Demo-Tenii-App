@@ -21,7 +21,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
-import java.util.stream.Stream;
 
 public class ServletHelper {
 
@@ -104,8 +103,6 @@ public class ServletHelper {
         String url = "https://tenii-products-api.herokuapp.com/bankAccount/" + id;
         SourceBankAccount account = gson.fromJson(ServletHelper.getRequest(url, null), SourceBankAccount.class);
         if(!Optional.ofNullable(account.getAccountId()).isPresent()) {
-            writer.append("<br/>");
-            writer.append("Set Source bank account");
             writer.append("<br/>");
             writer.append("<br/>");
             writer.append("<table border=\"1\"><tr><th>Account Number</th><th>Sort Code</th><th>Set as Source</th></tr>");
