@@ -1,18 +1,20 @@
 package dtos;
 
+import java.util.Set;
+
 public class SourceBankAccount {
 
     public SourceBankAccount() {}
 
-    private String accountId;
+    private Set<String> accountIds;
     private String teniiId;
 
-    public String getAccountId() {
-        return accountId;
+    public Set<String> getAccountIds() {
+        return accountIds;
     }
 
-    public void setAccountId(String accountId) {
-        this.accountId = accountId;
+    public void setAccountIds(Set<String> accountIds) {
+        this.accountIds = accountIds;
     }
 
     public String getTeniiId() {

@@ -102,7 +102,7 @@ public class ServletHelper {
     public static void checkForSourceBank(String id, PrintWriter writer, List<Account> accounts) throws IOException {
         String url = "https://tenii-products-api.herokuapp.com/bankAccount/" + id;
         SourceBankAccount account = gson.fromJson(ServletHelper.getRequest(url, null), SourceBankAccount.class);
-        if(!Optional.ofNullable(account.getAccountId()).isPresent()) {
+        if(account.getAccountIds().isEmpty()) {
             writer.append("<br/>");
             writer.append("<br/>");
             writer.append("<table border=\"1\"><tr><th>Account Number</th><th>Sort Code</th><th>Set as Source</th></tr>");

@@ -25,7 +25,7 @@ public class AddStudentLoanServlet extends HttpServlet {
         StudentLoan loan = new StudentLoan();
 
         SourceBankAccount account = new SourceBankAccount();
-        account.setAccountId(accountId);
+        account.setAccountIds(accountId);
         account.setTeniiId(userId);
         String resp = postAccount(account);
         System.out.println("Response is: " + resp);

@@ -1,7 +1,6 @@
 package servlet;
 
 import com.google.gson.Gson;
-import dtos.Register;
 import dtos.SourceBankAccount;
 
 import javax.servlet.ServletException;
@@ -22,7 +21,7 @@ public class SourceBankServlet extends HttpServlet {
         String accountId = req.getParameter("accountId");
 
         SourceBankAccount account = new SourceBankAccount();
-        account.setAccountId(accountId);
+        account.setAccountIds(accountId);
         account.setTeniiId(user);
         String resp = postAccount(account);
         System.out.println("Response is: " + resp);
