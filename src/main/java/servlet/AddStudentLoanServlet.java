@@ -23,16 +23,16 @@ public class AddStudentLoanServlet extends HttpServlet {
         String accountId = req.getParameter("accountId");
         double balance = Double.valueOf(req.getParameter("balance"));
         StudentLoan loan = new StudentLoan();
+        loan.setAccountId(accountId);
+        loan.setBalance(balance);
+        loan.setUserId(userId);
 
-        SourceBankAccount account = new SourceBankAccount();
-        account.setAccountIds(accountId);
-        account.setTeniiId(userId);
-        String resp = postAccount(account);
+        String resp = postAccount(loan);
         System.out.println("Response is: " + resp);
-        response.sendRedirect("login");
+        //response.sendRedirect("login");
     }
 
-    private String postAccount(SourceBankAccount account) throws IOException {
+    private String postAccount(StudentLoan account) throws IOException {
         String url = "https://tenii-student-loans-api.herokuapp.com/bankAccount";
         return ServletHelper.postRequest(url, gson.toJson(account), null);
     }
