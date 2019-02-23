@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.HashSet;
+import java.util.Set;
 
 @WebServlet(name = "SourceBankServlet", urlPatterns = {"/sourceBank"})
 public class SourceBankServlet extends HttpServlet {
@@ -20,8 +22,11 @@ public class SourceBankServlet extends HttpServlet {
         String user = req.getParameter("user");
         String accountId = req.getParameter("accountId");
 
+        Set<String> accountIds = new HashSet<>();
+        accountIds.add(accountId)
+
         SourceBankAccount account = new SourceBankAccount();
-        account.setAccountIds(accountId);
+        account.setAccountIds(accountIds);
         account.setTeniiId(user);
         String resp = postAccount(account);
         System.out.println("Response is: " + resp);
