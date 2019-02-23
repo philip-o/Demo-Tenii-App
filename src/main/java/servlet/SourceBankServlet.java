@@ -23,7 +23,7 @@ public class SourceBankServlet extends HttpServlet {
         String accountId = req.getParameter("accountId");
 
         Set<String> accountIds = new HashSet<>();
-        accountIds.add(accountId)
+        accountIds.add(accountId);
 
         SourceBankAccount account = new SourceBankAccount();
         account.setAccountIds(accountIds);
