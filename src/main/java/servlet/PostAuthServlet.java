@@ -48,6 +48,8 @@ public class PostAuthServlet extends HttpServlet {
                     .append("		</body>\r\n")
                     .append("</html>\r\n");
         } catch (IOException ioe) {
+            System.out.println(ioe.getMessage());
+            ioe.printStackTrace();
             response.sendRedirect("register");
         }
     }
