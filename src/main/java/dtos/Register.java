@@ -13,6 +13,7 @@ public class Register {
     private String email;
     private RoarType roarType;
     private String ipAddress;
+    private String provider;
 
     public String getTitle() {
         return title;
@@ -84,5 +85,13 @@ public class Register {
 
     public void setIpAddress(String ipAddress) {
         this.ipAddress = ipAddress;
+    }
+
+    public String getProvider() {
+        return provider;
+    }
+
+    public void setProvider(String provider) {
+        this.provider = provider;
     }
 }

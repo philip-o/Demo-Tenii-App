@@ -1,6 +1,6 @@
 package servlet;
 
-import builders.TellerRegistrationBuilder;
+import builders.TrueLayerRegistrationBuilder;
 import com.google.gson.Gson;
 import dtos.Register;
 import dtos.RoarType;
@@ -32,7 +32,7 @@ public class TrulayerRegistrationServlet extends HttpServlet {
         roarType.setLimit(amount);
         roarType.setRoar("BALANCED");
 
-        TellerRegistrationBuilder builder = new TellerRegistrationBuilder();
+        TrueLayerRegistrationBuilder builder = new TrueLayerRegistrationBuilder();
         Register register = builder
                 .withTitle("Mr")
                 .withForename(forename)
@@ -43,6 +43,7 @@ public class TrulayerRegistrationServlet extends HttpServlet {
                 .withMobile(mobile)
                 .withEmail(email)
                 .withIPAddress(ipAddress)
+                .withProvider("Mock")
                 .buildObject();
         String url = postTransaction(register);
         System.out.println("URL is: " + url);

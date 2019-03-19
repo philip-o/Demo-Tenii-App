@@ -3,7 +3,7 @@ package builders;
 import dtos.Register;
 import dtos.RoarType;
 
-public class TellerRegistrationBuilder {
+public class TrueLayerRegistrationBuilder {
 
     private String title;
     private String forename;
@@ -14,49 +14,55 @@ public class TellerRegistrationBuilder {
     private String email;
     private RoarType roarType;
     private String ipAddress;
+    private String provider;
 
-    public TellerRegistrationBuilder withTitle(String title) {
+    public TrueLayerRegistrationBuilder withTitle(String title) {
         this.title = title;
         return this;
     }
 
-    public TellerRegistrationBuilder withForename(String forename) {
+    public TrueLayerRegistrationBuilder withForename(String forename) {
         this.forename = forename;
         return this;
     }
 
-    public TellerRegistrationBuilder withSurname(String surname) {
+    public TrueLayerRegistrationBuilder withSurname(String surname) {
         this.surname = surname;
         return this;
     }
 
-    public TellerRegistrationBuilder withDOB(String dob) {
+    public TrueLayerRegistrationBuilder withDOB(String dob) {
         this.dob = dob;
         return this;
     }
 
-    public TellerRegistrationBuilder withPassword(String password) {
+    public TrueLayerRegistrationBuilder withPassword(String password) {
         this.password = password;
         return this;
     }
 
-    public TellerRegistrationBuilder withMobile(String mobile) {
+    public TrueLayerRegistrationBuilder withMobile(String mobile) {
         this.mobile = mobile;
         return this;
     }
 
-    public TellerRegistrationBuilder withEmail(String email) {
+    public TrueLayerRegistrationBuilder withEmail(String email) {
         this.email = email;
         return this;
     }
 
-    public TellerRegistrationBuilder withRoarType(RoarType roar) {
+    public TrueLayerRegistrationBuilder withRoarType(RoarType roar) {
         this.roarType = roar;
         return this;
     }
 
-    public TellerRegistrationBuilder withIPAddress(String ipAddress) {
+    public TrueLayerRegistrationBuilder withIPAddress(String ipAddress) {
         this.ipAddress = ipAddress;
+        return this;
+    }
+
+    public TrueLayerRegistrationBuilder withProvider(String provider) {
+        this.provider = provider;
         return this;
     }
 
@@ -72,6 +78,7 @@ public class TellerRegistrationBuilder {
         register.setEmail(this.email);
         register.setRoarType(this.roarType);
         register.setIpAddress(this.ipAddress);
+        register.setProvider(this.provider);
         return register;
     }
 }
